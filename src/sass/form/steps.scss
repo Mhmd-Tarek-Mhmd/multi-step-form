@@ -189,3 +189,80 @@
     }
   }
 }
+
+// Step 4
+.form__summary {
+  font-size: 14px;
+  & > * {
+    padding-inline: 16px;
+    @media (min-width: 768px) {
+      padding-inline: 24px;
+    }
+  }
+  &__wrapper {
+    background-color: var(--alabaster);
+  }
+
+  &__plan,
+  &__add,
+  &__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__plan {
+    padding-block: 18px 13px;
+    color: var(--marine-blue);
+    border-bottom: 1px solid var(--light-gray);
+    @media (min-width: 768px) {
+      padding-block: 24px;
+    }
+    &__group {
+      display: grid;
+    }
+    &__name {
+      text-transform: capitalize;
+    }
+    &__change {
+      padding: 0;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      background: none;
+      color: var(--gray);
+      width: fit-content;
+      text-decoration: underline;
+      &:hover {
+        color: var(--purplish-blue);
+      }
+    }
+  }
+  &__adds {
+    display: grid;
+    row-gap: 18px;
+    padding-block: 16px;
+  }
+  &__no_add {
+    text-align: center;
+    color: var(--gray);
+  }
+  &__add {
+    &__name {
+      color: var(--gray);
+    }
+    &__price {
+      color: var(--marine-blue);
+    }
+  }
+  &__total {
+    height: 42px;
+    align-items: end;
+    &__title {
+      color: var(--gray);
+    }
+    &__price {
+      font-size: 16px;
+      color: var(--purplish-blue);
+    }
+  }
+}
