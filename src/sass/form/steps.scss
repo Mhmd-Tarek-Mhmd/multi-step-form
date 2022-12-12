@@ -185,7 +185,7 @@
     &:has(:checked) &__input--views {
       border-color: transparent;
       background-color: var(--purplish-blue);
-      background-image: url(../../assets/images/icon-checkmark.svg);
+      background-image: url(../assets/images/icon-checkmark.svg);
     }
   }
 }
