@@ -1,0 +1,27 @@
+.loader {
+  inset: 0;
+  z-index: 99999;
+  position: fixed;
+  place-items: center;
+  background-color: rgba(#fff, 0.3);
+  &:not([hidden]) {
+    display: grid;
+  }
+  &::before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    border: 6px solid var(--purplish-blue);
+    border-top: 6px solid transparent;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
