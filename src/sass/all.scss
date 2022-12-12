@@ -3,3 +3,45 @@
 
 // Form styles
 @import "./form/all";
+
+// Thanks styles
+.thanks {
+  @extend .form__step;
+  text-align: center;
+  place-items: center;
+  &:not([hidden]) {
+    display: grid;
+  }
+  @media (min-width: 768px) {
+    flex: 1;
+    align-content: center;
+  }
+  &__wrapper {
+    row-gap: 4px;
+    display: inherit;
+    justify-items: center;
+    @media (min-width: 768px) {
+      row-gap: 8px;
+      max-width: 470px;
+    }
+  }
+  &__icon {
+    margin-bottom: 19px;
+    @media (max-width: 767px) {
+      margin-bottom: 5px;
+      transform: scale(0.7);
+    }
+  }
+  &__title {
+    color: var(--marine-blue);
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+  &__desc {
+    color: var(--gray);
+    @media (min-width: 768px) {
+      padding-inline: 14px;
+    }
+  }
+}
