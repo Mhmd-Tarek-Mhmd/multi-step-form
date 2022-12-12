@@ -1,6 +1,17 @@
 //- Loader
 .loader(role="alert" aria-label="Loading" hidden='')
 
-main.container
+main.container(data-step="1")
   //- Sidebar
   include sidebar
+
+  //- Form
+  form.form(novalidate onsubmit="event.preventDefault()")
+    //- Form Steps
+    include ./steps/all
+
+    //- Form Actions
+    .form__actions
+      button.form__action.form__action--back(type="button") Go Back
+      button.form__action.form__action--next(type="button") Next Step
+      button.form__action.form__action--submit(type="button") Confirm  

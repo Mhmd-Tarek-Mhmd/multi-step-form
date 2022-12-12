@@ -1,0 +1,7 @@
+mixin step(index, name, desc)
+  fieldset(class=`form__step form__step--${index}`)
+    legend.form__step__name=name
+    p.form__step__desc=desc
+
+    div(class=`form__step--${index}__content`)
+      block

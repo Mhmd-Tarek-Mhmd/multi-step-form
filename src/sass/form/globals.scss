@@ -1,0 +1,181 @@
+body {
+  @media (min-width: 768px) {
+    display: grid;
+    place-items: center;
+    background-color: var(--magnolia);
+  }
+}
+
+.container {
+  height: 100vh;
+  min-height: 700px;
+  position: relative;
+  background-color: var(--magnolia);
+  @media (min-width: 768px) {
+    width: 940px;
+    padding: 16px;
+    display: flex;
+    height: 600px;
+    max-width: 90vw;
+    padding-right: 0;
+    border-radius: 14px;
+    background-color: var(--white);
+    box-shadow: 0 4px rgba(0, 0, 0, 0.03);
+  }
+}
+
+.form {
+  @media (min-width: 768px) {
+    display: grid;
+    margin: 0 auto;
+    max-width: 450px;
+    padding-top: 34px;
+    width: calc(90% - 274px);
+  }
+
+  &__step {
+    padding: 0;
+    border: none;
+    display: none;
+    @media (max-width: 767px) {
+      top: -73px;
+      width: 343px;
+      margin: 0 auto;
+      max-width: 100%;
+      position: relative;
+      border-radius: 8px;
+      padding: 45px 24px 32px;
+      background-color: var(--white);
+    }
+    &__name {
+      padding: 0;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--marine-blue);
+      @media (max-width: 767px) {
+        top: 45px;
+        position: relative;
+        font-size: 1.45rem;
+      }
+    }
+    &__desc {
+      color: var(--gray);
+      margin: 6px 0 20px;
+      @media (min-width: 768px) {
+        margin-bottom: 33px;
+      }
+    }
+  }
+
+  &__controls {
+    display: grid;
+    row-gap: 12px;
+  }
+
+  &__control--checked {
+    padding: 16px;
+    outline: none;
+    border-radius: 6px;
+    border: 1px solid var(--light-gray);
+    will-change: background-color, border-color;
+    &:is(:hover, :focus) {
+      border-color: var(--purplish-blue);
+    }
+    &:has(:checked) {
+      background-color: var(--alabaster);
+      border-color: var(--purplish-blue);
+    }
+    &__label {
+      & :not(&__name) {
+        font-size: 14px;
+      }
+    }
+    &__input {
+      width: 1px;
+      height: 1px;
+      position: absolute;
+      clip: rect(0 0 0 0);
+    }
+  }
+
+  &__actions {
+    padding: 16px;
+    display: flex;
+    align-self: end;
+    justify-content: space-between;
+    @media (max-width: 767px) {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      position: absolute;
+      background-color: var(--white);
+    }
+  }
+
+  &__action {
+    width: 123px;
+    height: 48px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    font-weight: 500;
+    border-radius: 8px;
+    transition-duration: 0.3;
+    &:not(&--back) {
+      color: var(--white);
+      will-change: opacity;
+      transition-property: opacity;
+    }
+    &:not(&--back):hover,
+    &:not(&--back):focus {
+      opacity: 0.9;
+    }
+    &--next {
+      background-color: var(--marine-blue);
+    }
+    &--back {
+      color: var(--gray);
+      will-change: color;
+      transition-property: color;
+    }
+    &--back:hover,
+    &--back:focus {
+      color: var(--marine-blue);
+    }
+  }
+}
+
+// Steps
+[data-step="1"] .form__actions {
+  direction: rtl;
+}
+[data-step="4"] .form__action--submit {
+  display: block;
+  pointer-events: initial;
+  background-color: var(--purplish-blue);
+}
+.form__action--submit,
+[data-step="4"] .form__action--next,
+[data-step="1"] .form__action--back {
+  display: none;
+  pointer-events: none;
+}
+
+@each $step in $steps {
+  [data-step="#{$step}"] .form__step--#{$step} {
+    display: block;
+  }
+}
+
+// Plans
+:has([aria-checked="true"]) {
+  [class$="--monthly"] {
+    display: none;
+  }
+}
+:has([aria-checked="false"]) {
+  [class$="--annually"] {
+    display: none;
+  }
+}
