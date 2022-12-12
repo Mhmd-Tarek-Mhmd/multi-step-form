@@ -138,3 +138,54 @@
     }
   }
 }
+
+// Step 3
+.form__step--3 {
+  &__control {
+    height: 62px;
+    display: flex;
+    align-items: center;
+    @media (min-width: 768px) {
+      height: 81px;
+      padding: 14px 24px;
+    }
+    &__label {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &__group {
+        display: grid;
+      }
+      &__name {
+        font-size: initial;
+        color: var(--marine-blue);
+      }
+      &__desc {
+        color: var(--gray);
+        @media (max-width: 767px) {
+          font-size: 12px !important;
+        }
+      }
+      &__price {
+        font-weight: 500;
+        color: var(--purplish-blue);
+      }
+    }
+    &__input--views {
+      width: 20px;
+      height: 20px;
+      margin-right: 17px;
+      border-radius: 2px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      border: 1px solid var(--light-gray);
+      will-change: border-color, background-color, background-image;
+    }
+    &:has(:checked) &__input--views {
+      border-color: transparent;
+      background-color: var(--purplish-blue);
+      background-image: url(../../assets/images/icon-checkmark.svg);
+    }
+  }
+}
