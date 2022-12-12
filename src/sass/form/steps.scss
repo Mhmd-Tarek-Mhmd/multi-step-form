@@ -1,0 +1,46 @@
+// Step 1
+.form__step--1 {
+  &__content {
+    display: grid;
+    row-gap: 16px;
+    @media (min-width: 768px) {
+      padding-top: 3px;
+    }
+  }
+  &__control {
+    display: grid;
+    position: relative;
+
+    &__label {
+      font-size: 14px;
+      font-weight: 400;
+    }
+    &__input {
+      height: 40px;
+      outline: none;
+      font-weight: 500;
+      padding-left: 16px;
+      border-radius: 4px;
+      color: var(--marine-blue);
+      caret-color: var(--purplish-blue);
+      border: 1px solid var(--light-gray);
+      &--error {
+        border-color: var(--strawberry-red);
+      }
+      &:focus {
+        border-color: var(--purplish-blue);
+      }
+      &::placeholder {
+        color: var(--gray);
+      }
+    }
+    &__msg {
+      top: 0;
+      right: 0;
+      font-size: 14px;
+      font-weight: 700;
+      position: absolute;
+      color: var(--strawberry-red);
+    }
+  }
+}
