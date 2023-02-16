@@ -46,7 +46,6 @@ import {
   // Step 1 Views
   const StepOneViews: Views = {
     init: function () {
-      console.log("StepOneViews.init");
       $(".form__action--back")!.removeEventListener(
         "click",
         Helpers.decreaseStep
@@ -54,7 +53,6 @@ import {
     },
 
     render: function (): void {
-      console.log("StepOneViews.render");
       const form: Form = $(".form")!;
       const { name, email, phone } = form.elements;
       const msgClassName = "form__step--1__control__msg";
@@ -82,7 +80,6 @@ import {
   // Step 2 Views
   const StepTwoViews: Views = {
     init: function () {
-      console.log("StepTwoViews.init");
       const {  decreaseStep, thanksStep, togglePlan } = Helpers; // prettier-ignore
 
       $(".form__action--back")!.addEventListener("click", decreaseStep);
@@ -91,7 +88,6 @@ import {
     },
 
     render: function () {
-      console.log("StepTwoViews.render");
       Helpers.increaseStep();
     },
   };
@@ -99,7 +95,6 @@ import {
   // Step 3 Views
   const StepThreeViews: Views = {
     init: function () {
-      console.log("StepThreeViews.init");
       $(".form__action--submit")!.removeEventListener(
         "click",
         Helpers.thanksStep
@@ -107,7 +102,6 @@ import {
     },
 
     render: function () {
-      console.log("StepThreeViews.render");
       Helpers.increaseStep();
     },
   };
@@ -115,8 +109,6 @@ import {
   // Step 4 Views
   const StepFourViews: Views = {
     init: function () {
-      console.log("StepFourViews.init");
-
       Helpers.showSummary();
       $(".form__action--submit")!.addEventListener("click", Helpers.thanksStep);
       ($(".form__summary__plan__change") as btn).onclick = () => {
@@ -125,9 +117,7 @@ import {
       };
     },
 
-    render: function () {
-      console.log("StepFourViews.render");
-    },
+    render: function () {},
   };
 
   const Helpers: HelpersInterface = {
