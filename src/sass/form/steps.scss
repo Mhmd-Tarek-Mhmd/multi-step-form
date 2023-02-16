@@ -30,6 +30,18 @@
       &:focus {
         border-color: var(--purplish-blue);
       }
+      &::-webkit-input-placeholder {
+        color: var(--gray);
+      }
+      &::-moz-placeholder {
+        color: var(--gray);
+      }
+      &:-ms-input-placeholder {
+        color: var(--gray);
+      }
+      &::-ms-input-placeholder {
+        color: var(--gray);
+      }
       &::placeholder {
         color: var(--gray);
       }
@@ -49,12 +61,14 @@
 .form__step--2 {
   &__content {
     @media (min-width: 768px) {
-      column-gap: 18px;
-      grid-template-columns: repeat(3, 1fr);
+      height: 263px;
+      display: grid;
+      align-content: space-between;
     }
   }
   &__controls {
     @media (min-width: 992px) {
+      -moz-column-gap: 18px;
       column-gap: 18px;
       grid-template-columns: repeat(3, 1fr);
     }
@@ -63,6 +77,7 @@
     @media (max-width: 991px) {
       height: 77px;
       display: flex;
+      -moz-column-gap: 14px;
       column-gap: 14px;
       align-items: center;
     }
@@ -86,12 +101,11 @@
   &__plan {
     height: 48px;
     display: flex;
-    margin-top: 24px;
     align-items: center;
     justify-content: center;
     background-color: var(--alabaster);
-    @media (min-width: 768px) {
-      margin-top: 32px;
+    @media (max-width: 767px) {
+      margin-top: 24px;
     }
 
     &__checkbox {
@@ -128,6 +142,7 @@
       &__thumb {
         width: 12px;
         height: 12px;
+        display: block;
         border-radius: 50%;
         pointer-events: none;
         background-color: var(--white);
@@ -230,6 +245,8 @@
       font-weight: 700;
       background: none;
       color: var(--gray);
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
       width: fit-content;
       text-decoration: underline;
       &:hover {
