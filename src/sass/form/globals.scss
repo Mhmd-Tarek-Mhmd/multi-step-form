@@ -1,4 +1,5 @@
 body {
+  min-height: 700px;
   @media (min-width: 768px) {
     display: grid;
     place-items: center;
@@ -8,7 +9,6 @@ body {
 
 .container {
   height: 100vh;
-  min-height: 700px;
   position: relative;
   background-color: var(--magnolia);
   @media (min-width: 768px) {
